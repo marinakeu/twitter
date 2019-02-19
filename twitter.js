@@ -30,8 +30,9 @@ function showButton() {
     let rows = arrayText.length;
     console.log(cols);
     console.log(arrayText);
-    /*for (i=0;i<arrayText.length;i++) 
-    rows+=parseInt(arrayText[i].length/cols);*/
+    for (i = 0; i < arrayText.length; i++) {
+        rows += parseInt(arrayText[i].length / cols);
+    };
     if (rows <= 1) tweetArea.rows = 1;
     else tweetArea.rows = rows;
     console.log(rows);
@@ -41,10 +42,21 @@ tweetArea.addEventListener('input', showButton);
 
 function newTweet() {
     let tweetText = tweetArea.value;
-    let paragraph = document.createElement('p');
+    let tweetBox = document.createElement('div');
+    let textParagraph = document.createElement('p');
     let message = document.createTextNode(tweetText);
-    paragraph.appendChild(message);
-    document.getElementById("tweets").appendChild(paragraph);
+    textParagraph.appendChild(message);
+
+    let date = moment().format('hh:mm');
+    console.log(date);
+    let dateParagraph = document.createElement('p');
+    let dateText = document.createTextNode(date);
+    dateParagraph.appendChild(dateText);
+
+    document.getElementById("tweets").appendChild(tweetBox);
+    tweetBox.appendChild(textParagraph);
+    tweetBox.appendChild(dateText);
+    
 }
 
 tweetButton.addEventListener('click', newTweet);
