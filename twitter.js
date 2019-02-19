@@ -3,15 +3,26 @@ let tweetButton = document.getElementById('tweet-button');
 
 function showButton() {
     let tweetLength = tweetArea.value.length;
+    let characters = 140 - tweetLength;
     if (tweetArea.value) {
-        tweetButton.style.visibility = 'visible';
-        let characters = 140 - tweetLength;
         let counter = document.getElementById('counter');
         counter.innerHTML = characters;
-
+        if (characters >= 0) {
+            tweetButton.style.visibility = 'visible';
+            if (characters < 20 && characters > 9) {
+                counter.style.color = 'orange';
+            } else if (characters < 10) {
+                counter.style.color = 'red';
+            } else if (characters > 19) {
+                counter.style.color = '#657786';
+            }
+        } else {
+            tweetButton.style.visibility = 'hidden';
+        }
     } else {
         tweetButton.style.visibility = 'hidden';
         counter.innerHTML = 140;
+        counter.style.color = '#657786';
     }
 }
 
