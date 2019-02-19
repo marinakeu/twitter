@@ -31,9 +31,9 @@ function showButton() {
         counter.innerHTML = 140;
         counter.style.color = '#657786';
     }
-    let tweetText = tweetArea.value;
+    
     let cols = tweetArea.cols;
-    let arrayText = tweetText.split('\n');
+    let arrayText = tweetArea.value.split('\n');
     let rows = arrayText.length;
     console.log(cols);
     console.log(arrayText);
@@ -53,8 +53,7 @@ function newTweet() {
     let textParagraph = document.createElement('p');
     let message = document.createTextNode(tweetText);
     textParagraph.appendChild(message);
-
-    let date = moment().format('hh:mm');
+    let date = moment().format('HH:MM');
     console.log(date);
     let dateParagraph = document.createElement('p');
     let dateText = document.createTextNode(date);
@@ -63,9 +62,8 @@ function newTweet() {
     document.getElementById("tweets").appendChild(tweetBox);
     tweetBox.appendChild(textParagraph);
     tweetBox.appendChild(dateText);
-
-    tweetText = '';
-    
+   
+    tweetArea.value = '';    
 }
 
 tweetButton.addEventListener('click', newTweet);
