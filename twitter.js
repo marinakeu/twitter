@@ -53,7 +53,7 @@ function newTweet() {
     let textParagraph = document.createElement('p');
     let message = document.createTextNode(tweetText);
     textParagraph.appendChild(message);
-    let date = moment().format('HH:MM');
+    let date = moment().format('HH:mm');
     console.log(date);
     let dateParagraph = document.createElement('p');
     let dateText = document.createTextNode(date);
