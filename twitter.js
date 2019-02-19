@@ -48,22 +48,22 @@ function showButton() {
 tweetArea.addEventListener('input', showButton);
 
 function newTweet() {
-    let tweetText = tweetArea.value;
-    let tweetBox = document.createElement('div');
+    let tweetText = tweetArea.value;    
     let textParagraph = document.createElement('p');
-    let message = document.createTextNode(tweetText);
-    textParagraph.appendChild(message);
+    textParagraph.textContent = tweetText;
     let date = moment().format('HH:mm');
-    console.log(date);
     let dateParagraph = document.createElement('p');
-    let dateText = document.createTextNode(date);
-    dateParagraph.appendChild(dateText);
-
+    dateParagraph.textContent = date;
+    let tweetBox = document.createElement('div');
     document.getElementById("tweets").appendChild(tweetBox);
     tweetBox.appendChild(textParagraph);
-    tweetBox.appendChild(dateText);
-   
-    tweetArea.value = '';    
+    tweetBox.appendChild(dateParagraph);  
+    tweetArea.value = ''; 
+    tweetButton.disabled = true;
+    tweetButton.style.backgroundColor = '#BFAFAC';
+    tweetButton.style.cursor = 'auto';
+    counter.innerHTML = 140;
+    counter.style.color = '#657786';
 }
 
 tweetButton.addEventListener('click', newTweet);
