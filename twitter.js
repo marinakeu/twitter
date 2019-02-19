@@ -1,5 +1,6 @@
 let tweetArea = document.getElementById('tweet-area');
 let tweetButton = document.getElementById('tweet-button');
+tweetButton.disabled = true;
 
 function showButton() {
     let tweetLength = tweetArea.value.length;
@@ -8,7 +9,9 @@ function showButton() {
         let counter = document.getElementById('counter');
         counter.innerHTML = characters;
         if (characters >= 0) {
-            tweetButton.style.visibility = 'visible';
+            tweetButton.disabled = false;
+            tweetButton.style.backgroundColor = '#1DA1F2';
+            tweetButton.style.cursor = 'pointer';
             if (characters < 20 && characters > 9) {
                 counter.style.color = 'orange';
             } else if (characters < 10) {
@@ -17,10 +20,14 @@ function showButton() {
                 counter.style.color = '#657786';
             }
         } else {
-            tweetButton.style.visibility = 'hidden';
+            tweetButton.disabled = true;
+            tweetButton.style.backgroundColor = '#BFAFAC';
+            tweetButton.style.cursor = 'auto';
         }
     } else {
-        tweetButton.style.visibility = 'hidden';
+        tweetButton.disabled = true;
+        tweetButton.style.backgroundColor = '#BFAFAC';
+        tweetButton.style.cursor = 'auto';
         counter.innerHTML = 140;
         counter.style.color = '#657786';
     }
@@ -56,6 +63,8 @@ function newTweet() {
     document.getElementById("tweets").appendChild(tweetBox);
     tweetBox.appendChild(textParagraph);
     tweetBox.appendChild(dateText);
+
+    tweetText = '';
     
 }
 
