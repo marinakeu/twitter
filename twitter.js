@@ -24,12 +24,23 @@ function showButton() {
         counter.innerHTML = 140;
         counter.style.color = '#657786';
     }
+    let tweetText = tweetArea.value;
+    let cols = tweetArea.cols;
+    let arrayText = tweetText.split('\n');
+    let rows = arrayText.length;
+    console.log(cols);
+    console.log(arrayText);
+    /*for (i=0;i<arrayText.length;i++) 
+    rows+=parseInt(arrayText[i].length/cols);*/
+    if (rows <= 1) tweetArea.rows = 1;
+    else tweetArea.rows = rows;
+    console.log(rows);
 }
 
 tweetArea.addEventListener('input', showButton);
 
 function newTweet() {
-    let tweetText = document.getElementById('tweet-area').value;
+    let tweetText = tweetArea.value;
     let paragraph = document.createElement('p');
     let message = document.createTextNode(tweetText);
     paragraph.appendChild(message);
