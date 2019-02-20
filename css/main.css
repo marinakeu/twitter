@@ -3,10 +3,10 @@
 }
 
 body{
-    background: url(../assets/images/bg.jpg) #1DA1F2;
+    background: url(../assets/images/bg.jpg) #5DBCD2;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 100%;   
+    width: 100%;
     margin: 0px; 
 }
 
@@ -96,10 +96,15 @@ hr{
 
 #tweets div{
     background-color: white;  
-    padding: 1rem;
+    padding: 0.5rem 1rem;
     margin: 1rem;  
     border: 1px solid white;
     border-radius: 1%;
     box-shadow: 2px 2px #888888;
     font-weight: bold; 
+}
+
+#tweets p{
+    margin-bottom: 0.5rem;
+    margin-top: 0.7rem;
 }
