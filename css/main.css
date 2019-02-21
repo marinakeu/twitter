@@ -3,7 +3,7 @@
 }
 
 body{
-    background: url(../assets/images/bg.jpg) #5DBCD2;
+    background: url(../assets/images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -93,6 +93,8 @@ hr{
 #tweets{
     width: 90%;
     margin: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 #tweets div{
@@ -108,4 +110,5 @@ hr{
 #tweets p{
     margin-bottom: 0.5rem;
     margin-top: 0.7rem;
+    word-wrap: break-word;
 }
