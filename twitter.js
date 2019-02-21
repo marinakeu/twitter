@@ -56,7 +56,9 @@ function newTweet() {
     let tweetText = tweetArea.value;
     let date = moment().format('HH:mm');
     let tweets = document.getElementById("tweets");
-    tweets.innerHTML = '<div><p>' + tweetText + '</p> <p>' + date + '</p></div>';
+    let tweetBox = document.createElement('div');
+    tweets.appendChild(tweetBox);
+    tweetBox.innerHTML = '<p>' + tweetText + '</p> <p>' + date + '</p>';
     reset();
 }
 
