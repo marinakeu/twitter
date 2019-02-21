@@ -17,27 +17,21 @@ function btnDisabled() {
 
 function reset() {
     btnDisabled();
+    tweetArea.value = '';
     counter.innerHTML = 140;
     counter.style.color = '#657786';
-    tweetArea.rows = 1;
+    tweetArea.style.height = 'auto';
 }
 
 function newRows() {
-    let cols = tweetArea.cols;
-    let arrayText = tweetArea.value.split('\n');
-    let rows = arrayText.length;
-    for (i = 0; i < arrayText.length; i++) {
-        rows += parseInt(arrayText[i].length / cols);
-    };
-    if (rows <= 1) tweetArea.rows = 1;
-    else tweetArea.rows = rows;
+    tweetArea.style.height = tweetArea.scrollHeight + 'px';
 }
 
 function typingTweet() {
     let tweetLength = tweetArea.value.length;
     let characters = 140 - tweetLength;
+    counter.innerHTML = characters;
     if (tweetArea.value) {
-        counter.innerHTML = characters;
         if (characters >= 0) {
             btnEnable();
             if (characters < 20 && characters > 9) {
@@ -60,16 +54,9 @@ tweetArea.addEventListener('input', typingTweet);
 
 function newTweet() {
     let tweetText = tweetArea.value;
-    let textParagraph = document.createElement('p');
-    textParagraph.textContent = tweetText;
     let date = moment().format('HH:mm');
-    let dateParagraph = document.createElement('p');
-    dateParagraph.textContent = date;
-    let tweetBox = document.createElement('div');
-    document.getElementById("tweets").appendChild(tweetBox);
-    tweetBox.appendChild(textParagraph);
-    tweetBox.appendChild(dateParagraph);
-    tweetArea.value = '';
+    let tweets = document.getElementById("tweets");
+    tweets.innerHTML = '<div><p>' + tweetText + '</p> <p>' + date + '</p></div>';
     reset();
 }
 

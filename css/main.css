@@ -59,6 +59,7 @@ main{
     outline: none;
     overflow: hidden;
     box-sizing: border-box;
+    height: auto;
 }
 
 hr{
