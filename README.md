@@ -35,7 +35,7 @@ A partir de modificações no DOM e utilização de eventos, permitir ao usuári
 
 O layout foi desenvolvido a partir do template sugerido abaixo:
 
-![Twitter template](docs/template.png)
+![Twitter template](docs/Template.png)
 
 
 Para estilização com CSS foram utilizados:
